@@ -40,6 +40,18 @@ Windows 7 + blender 2.67 64bit
 
     .../blender-2.67-windows64/2.67/scripts/addons/
 
+## GitHub Pages で WebLLM デモを公開する
+
+`docs/` ディレクトリには WebGPU 対応ブラウザ上で軽量 LLM を動作させるための簡易デモサイトが含まれています。GitHub Pages で公開する手順は以下のとおりです。
+
+1. このリポジトリを GitHub に push し、`docs/` フォルダの内容が `main` ブランチに含まれていることを確認します。
+2. GitHub のリポジトリページで **Settings** → **Pages** を開きます。
+3. **Build and deployment** の **Source** を `Deploy from a branch` に設定します。
+4. **Branch** ドロップダウンで `main` を選び、フォルダ指定で `/docs` を選択して **Save** を押します。
+5. 数十秒後に公開 URL が表示されるので、クリックしてチャット画面が表示されることを確認します。
+
+WebGPU に対応した最新の Chrome / Edge / Safari を利用し、初回アクセス時はモデルのダウンロードが完了するまで待機してください。モデルを再ダウンロードしたい場合はページ内の「モデルを再ダウンロード」ボタンを利用できます。
+
 ### Addonのロード
 1. User PrefernceのAddonsから"Object: mmd_tools"探してチェックを入れてください。
    (検索ボックスにmmdと入力すると簡単に探せます。)

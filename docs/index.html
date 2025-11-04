@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WebLLM Chat Playground</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>WebLLM Chat Playground</h1>
+      <p class="subtitle">WebGPU 上で軽量 LLM を実行して、ChatGPT 風の会話をブラウザだけで体験できます。</p>
+    </header>
+
+    <main class="app-shell">
+      <section class="sidebar">
+        <h2>設定</h2>
+        <label class="field">
+          <span>モデル</span>
+          <select id="model-select" aria-label="モデル選択"></select>
+        </label>
+        <label class="field">
+          <span>システムプロンプト</span>
+          <textarea id="system-prompt" rows="6" aria-label="システムプロンプト"></textarea>
+        </label>
+        <div class="status-block">
+          <h3>ステータス</h3>
+          <p id="gpu-status" class="status-line"></p>
+          <p id="model-status" class="status-line"></p>
+          <progress id="model-progress" value="0" max="1" hidden></progress>
+        </div>
+        <div class="actions">
+          <button id="download-model" type="button">モデルを再ダウンロード</button>
+          <button id="clear-history" type="button">履歴をリセット</button>
+        </div>
+      </section>
+
+      <section class="chat-panel" aria-live="polite">
+        <ul id="chat-log" class="chat-log"></ul>
+        <form id="chat-form" class="chat-form">
+          <textarea id="user-input" rows="2" placeholder="ここにメッセージを入力..." aria-label="ユーザー入力"></textarea>
+          <div class="form-actions">
+            <button id="send-button" type="submit">送信</button>
+            <button id="stop-button" type="button" disabled>停止</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>初回実行時は選択したモデルのダウンロードに時間がかかります。ダウンロード完了後はローカルキャッシュから高速に起動できます。</p>
+      <p>
+        WebGPU が利用できない環境では本サイトを利用できません。Chrome / Edge / Safari の最新バージョンでご利用ください。
+      </p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
