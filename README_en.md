@@ -35,6 +35,18 @@ Extract the archive and put the folder mmd__tools into the addon folder of blend
 
     .../blender-2.67-windows64/2.67/scripts/addons/
 
+## Publishing the WebLLM demo on GitHub Pages
+
+The `docs/` directory ships with a lightweight chat UI that runs WebLLM inside the browser. To publish it with GitHub Pages:
+
+1. Push this repository to GitHub and make sure the contents of `docs/` live on the `main` branch.
+2. Open the repository on GitHub and navigate to **Settings** → **Pages**.
+3. Under **Build and deployment**, choose `Deploy from a branch` as the source.
+4. Select the `main` branch and the `/docs` folder, then click **Save**.
+5. Wait for GitHub to build the site and follow the URL that appears at the top of the Pages screen.
+
+Use an up-to-date Chrome, Edge, or Safari with WebGPU enabled. The initial visit will download the chosen model; you can force a fresh download later with the “モデルを再ダウンロード” button inside the app.
+
 ### Loading Addon
 1. In User Preferences, under addon tab, select User filter and click the checkbox before mmd_tools
    (you can also find the addon my search)
