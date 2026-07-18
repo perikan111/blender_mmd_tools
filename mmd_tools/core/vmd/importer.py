@@ -90,6 +90,13 @@ class VMDImporter:
             act = bpy.data.actions.new(name=action_name)
             a = armObj.animation_data_create()
             a.action = act
+        else:
+            if armObj.animation_data is None:
+                armObj.animation_data_create()
+            act = armObj.animation_data.action
+            if act is None:
+                act = bpy.data.actions.new(name='Action')
+                armObj.animation_data.action = act
 
         if self.__frame_margin > 1:
             utils.selectAObject(armObj)
@@ -193,6 +200,13 @@ class VMDImporter:
             act = bpy.data.actions.new(name=action_name)
             a = mmdCamera.animation_data_create()
             a.action = act
+        else:
+            if mmdCamera.animation_data is None:
+                mmdCamera.animation_data_create()
+            act = mmdCamera.animation_data.action
+            if act is None:
+                act = bpy.data.actions.new(name='Action')
+                mmdCamera.animation_data.action = act
 
         cameraObj = mmdCameraInstance.camera()
         cameraAnim = self.__vmdFile.cameraAnimation
